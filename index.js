@@ -1,3 +1,6 @@
+const {LinkedList} = require('./linkedlist'); 
+
+
 class HashMap {
     constructor(initialCapacity=8) {
         this.length = 0;
@@ -24,13 +27,23 @@ class HashMap {
 
         if(!index.value) {
             this.length++;
+            this._slots[index] = {
+                key,
+                value,
+                deleted: false
+            };
         }
+        else {
+            if(index.value.typeOf === LinkedList){
 
-        this._slots[index] = {
-            key,
-            value,
-            deleted: false
-        };
+            }
+            else {
+                let indexList = new LinkedList(); 
+                indexList.insert(0, this._slots[index].value)
+                indexList.insert(0, value)
+                this._slots[index] = indexList
+            }
+        }
     }
 
     remove(key) {
@@ -46,15 +59,16 @@ class HashMap {
 
     _findSlot(key) {
         const hash = HashMap._hashString(key);
-        const start = hash % this._capacity;
+        const index = hash % this._capacity;
+        return index; 
 
-        for (let i=start; i<start + this._capacity; i++) {
-            const index = i % this._capacity;
-            const slot = this._slots[index];
-            if (slot === undefined || (slot.key == key && !slot.deleted)) {
-                return index;
-            }
-        }
+        // for (let i=start; i<start + this._capacity; i++) {
+        //     const index = i % this._capacity;
+        //     const slot = this._slots[index];
+        //     if (slot === undefined || (slot.key == key && !slot.deleted)) {
+        //         return index;
+        //     }
+        // }
     }
 
     _resize(size) {
@@ -104,3 +118,5 @@ myHash.set("Maiar", "Sauron")
 
 console.log(myHash.get('Maiar')); 
 console.log(myHash.length)
+let myList = new LinkedList; 
+console.log(typeof(myList)); 
