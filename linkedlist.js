@@ -15,13 +15,13 @@ class LinkedList {
   }
   
 
-  insert(index, value) {
+  insert(index, value, key) {
     if (index < 0 || index > this.length) {
       throw new Error('Index error');
     }
 
     const newNode = {
-      value
+      value, key
     };
 
     if (index === 0) {
