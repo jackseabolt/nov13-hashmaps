@@ -41,9 +41,8 @@ class HashMap {
                 current = current.next
             }
             const indexList = this._slots[index];
-            indexList.insert(0, this._slots[index].value, key)
             indexList.insert(0, value, key)
-            this._slots[index] = indexList
+
         }
     }
 
@@ -103,29 +102,31 @@ HashMap.SIZE_RATIO = 3;
 
 // ----------------------------------------- //
 
-let myHash = new HashMap();
-myHash.set("Hobbit", "Bilbo")
-console.log(myHash.get("Hobbit"))
-myHash.set("Wizard", "Gandolf")
-console.log(myHash.get("Wizard"))
-myHash.set("Hobbit", "Frodo")
-console.log(myHash.get("Hobbit"))
-myHash.set("Human", "Aragon")
-console.log(myHash.get("Human"))
-myHash.set("Elf", "Legolas")
-console.log(myHash.get("Elf"))
-myHash.set("Maiar", "The Necromancer")
-console.log(myHash.get("Maiar"))
-myHash.set("RingBearer", "Gollum")
-console.log(myHash.get("RingBearer"))
-myHash.set("LadyOfLight", "Galadriel")
-console.log(myHash.get("LadyOfLight"))
-myHash.set("HalfElven", "Arwen")
-console.log(myHash.get("HalfElven"))
-myHash.set("Ent", "Treebeard")
-console.log(myHash.get("Ent"))
-myHash.set("Maiar", "Sauron")
-console.log(myHash.get("Maiar"))
+// let myHash = new HashMap();
+// myHash.set("Hobbit", "Bilbo")
+// console.log(myHash.get("Hobbit"))
+// myHash.set("Wizard", "Gandolf")
+// console.log(myHash.get("Wizard"))
+// myHash.set("Hobbit", "Frodo")
+// console.log(myHash.get("Hobbit"))
+// myHash.set("Human", "Aragon")
+// console.log(myHash.get("Human"))
+// myHash.set("Elf", "Legolas")
+// console.log(myHash.get("Elf"))
+// myHash.set("Maiar", "The Necromancer")
+// console.log(myHash.get("Maiar"))
+// myHash.set("RingBearer", "Gollum")
+// console.log(myHash.get("RingBearer"))
+// myHash.set("LadyOfLight", "Galadriel")
+// console.log(myHash.get("LadyOfLight"))
+// myHash.set("HalfElven", "Arwen")
+// console.log(myHash.get("HalfElven"))
+// myHash.set("Ent", "Treebeard")
+// console.log(myHash.get("Ent"))
+// myHash.set("Maiar", "Sauron")
+// console.log(myHash.get("Maiar"))
 
-console.log('length:', myHash.length)
-let myList = new LinkedList; 
+// console.log('length:', myHash.length)
+// let myList = new LinkedList; 
+
+exports.HashMap = HashMap;
